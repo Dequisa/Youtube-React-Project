@@ -1,3 +1,5 @@
+// It's best to organize CSS based on specific component styling changes. i.e. About component CSS changes should be in About.css, etc
+
 body {
   background-color: black;
   color: white;

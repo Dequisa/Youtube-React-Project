@@ -41,6 +41,7 @@ export default class Home extends Component {
         })
     }
     loadMoreVideos = async () => {
+        // While double destructuring allows you gain access to nested variables, it makes the code more difficult to read when collaborating and revisiting the code later.
         const { currentSearch, searchResult: { nextPageToken: token } } = this.state;
         const { data: searchResult } = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?pageToken=${token}&part=snippet&maxResults=25&q=${currentSearch}&type=video&key=${process.env.REACT_APP_API_KEY}`);
         const videosIds = searchResult.items.map(video => video.id.videoId).join(",");
